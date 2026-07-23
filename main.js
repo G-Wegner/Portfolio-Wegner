@@ -100,7 +100,7 @@ function zoomMedia(element) {
         mainVideo.setAttribute('disablepictureinpicture', 'true');
         mainVideo.setAttribute('oncontextmenu', 'return false;');
 
-        // 🔍 PRÜFUNG: Nur wenn die Quelle "StrangerThings.mp4" ist, wird gedreht!
+        // 🔍 PRÜFUNG: Nur wenn die Quelle "StrangerThing.mp4" ist, wird gedreht!
         const videoSource = mainVideo.querySelector('source')?.src || mainVideo.src || '';
         const isstrangerthing = videoSource.toLowerCase().includes('strangerthing.mp4');
 
