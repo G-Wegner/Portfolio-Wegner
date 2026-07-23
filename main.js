@@ -102,9 +102,9 @@ function zoomMedia(element) {
 
         // 🔍 PRÜFUNG: Nur wenn die Quelle "StrangerThings.mp4" ist, wird gedreht!
         const videoSource = mainVideo.querySelector('source')?.src || mainVideo.src || '';
-        const isStrangerThings = videoSource.toLowerCase().includes('strangerthings.mp4');
+        const isstrangerthing = videoSource.toLowerCase().includes('strangerthing.mp4');
 
-        if (isStrangerThings.mp4) {
+        if (strangerthing) {
             const ROTATE_AT_SECOND = 18.0; // Hier Sekunde der Drehung festlegen
             setupVideoRotation(mainVideo, ROTATE_AT_SECOND);
             setupVideoRotation(glowVideo, ROTATE_AT_SECOND);
