@@ -114,8 +114,15 @@ function zoomMedia(element) {
         wrapper.appendChild(mainVideo);
         lightbox.appendChild(wrapper);
 
-        mainVideo.play();
-        glowVideo.play();
+       // NEU / REPARIERT:
+const playPromise = mainVideo.play();
+if (playPromise !== undefined) {
+    playPromise.then(() => {
+        glowVideo.play().catch(() => {});
+    }).catch(error => {
+        console.log("Autoplay abgefangen:", error);
+    });
+}
 
         // Synchrone Wiedergabe halten
         mainVideo.addEventListener('play', () => glowVideo.play());
