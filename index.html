@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortfolioGW.com</title>
+    <link rel="icon" type="image/png" href="Portfolio_Logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <img src="Portfolio_Logo.png" alt="Logo" class="loader-logo">
+            
+            <div class="percent-container">
+                <span class="counter">0</span><span class="symbol">%</span>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <img src="Portfolio_Logo.png" alt="Logo" class="site-logo">
+    </nav>
+
+    <section class="hero-content">
+        <div class="hero-text reveal">
+            <h1>Gerrit<br>Wegner</h1>
+            <p>Design // Print // Game Design</p>
+        </div>
+    </section>
+
+    <canvas id="bg"></canvas>
+
+    <div id="project-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-window"> 
+            <button class="close-x" onclick="closeModal()"></button>
+            
+            <div class="modal-grid-container">
+                <div class="modal-info-side">
+                    <h2 id="modal-title">Projekt Titel</h2>
+                    <p id="modal-desc">Beschreibung</p>
+                </div>
+
+                <div class="modal-gallery-side">
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- ABOUT SECTION -->
+        <section class="about">
+            <div class="bento-grid">
+                <div class="bento-item profile">
+                    <img src="IMG_2231.png" alt="Gerrit Wegner" class="profile-img">
+                </div>
+                
+                <div class="bento-item info">
+                    <h2 class="about-title">About Me</h2>
+                    <div class="about-text-box">
+                        <p class="lead-text-en">
+                            My name is <strong>Gerrit</strong>, and I am from the Black Forest. I am currently pursuing an education in Stuttgart as a <strong>Media Designer</strong>, specializing in digital and print design with a focus on animation and visualization.
+                        </p>
+                        <p class="main-body-en">
+                            My work combines technical understanding with a strong creative approach. For over <strong>three years</strong>, I have been deeply engaged in 3D design and real-time visualization, working with tools such as <strong>Blender and Unreal Engine</strong>.
+                        </p>
+                        <p class="main-body-en">
+                            Alongside my studies, I am independently developing my own game project, <strong>“Eternal Dread.”</strong> Through this project, I bring together my skills in game design, 3D modeling, and visual design. Creativity is not just part of my education, but a core element of my daily work.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bento-item tech">
+                    <h3>Stack & Expertise</h3>
+                    <div class="tags">
+                        <!-- Disziplinen & Capabilities -->
+                        <span class="tag-highlight">3D Design & Modeling</span>
+                        <span class="tag-highlight">3D Animation</span>
+                        <span class="tag-highlight">Real-Time Visualization</span>
+                        <span class="tag-highlight">Game Design</span>
+                        <span class="tag-highlight">VFX</span>
+                        <span class="tag-highlight">Print & Digital Design</span>
+                        <span class="tag-highlight">Web Design</span>
+
+                        <!-- Tools & Software -->
+                        <span>Unreal Engine 5</span>
+                        <span>Blender</span>
+                        <span>Photoshop</span>
+                        <span>Illustrator</span>
+                        <span>InDesign</span>
+                        <span>Web Design (HTML/CSS)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLENDER SECTION -->
+        <section class="projects">
+            <h2 class="section-title">Blender</h2>
+            <div class="slider-container">
+                <button class="nav-btn prev" onclick="moveSlider(this,-1)" ontouchstart="moveSlider(this,-1)">❮</button>
+                
+                <div class="carousel">
+
+                    <!-- Box 01 -->
+                    <div class="project-card" style="background-image: url('Fabric.png');" 
+                         onclick="openProject('My Materials (Blender)', '<p class=\'description-body\'>This material was created entirely procedurally in Blender using multiple layered Wave and Noise textures to achieve a realistic fabric surface.</p><br><span class=\'highlight-text\'>Procedural Workflow</span><p class=\'description-body\'>Different scales and directions of wave patterns were combined to recreate fine woven cloth structures.</p><br><span class=\'highlight-text\'>Shading & Depth</span><p class=\'description-body\'>Textures were blended using Multiply, Add, and ColorRamp nodes driving both color variation and bump detail on a Principled BSDF shader.</p>', 'Fabric.png', 'FabricChairZoom_.png', 'FabricChairZoomSite_.png')">
+                        <div class="card-content"><span>01</span><h4>My Materials</h4></div>
+                    </div>
+
+                    <!-- Box 02 -->
+                    <div class="project-card" style="background-image: url('McLarenLight.png');" 
+                         onclick="openProject('Automotive', '<p class=\'description-body\'>A high-fidelity digital twin of a McLaren, focusing on the interplay of light and aerodynamic form. This project pushes the boundaries of real-time rendering to capture the essence of automotive excellence.</p><br><span class=\'highlight-text\'>Digital Sculpting</span><p class=\'description-body\'>Precision modeling in Blender with a focus on class-A surfaces and perfect curvature continuity.</p><br><span class=\'highlight-text\'>Lighting Tech</span><p class=\'description-body\'>A multi-layer lighting setup in Unreal Engine 5 using Lumen for dynamic, physically accurate reflections.</p><br><span class=\'highlight-text\'>Materials</span><p class=\'description-body\'>Custom carbon fiber and multi-coat metallic shaders developed to react dynamically to environment light.</p>', 'McLarenFrontSide.png', 'McLarenFront.png', 'McLarenLight.png', 'McLarenUpside.png', 'McLarenSide.png')">
+                        <div class="card-content"><span>02</span><h4>Automotive</h4></div>
+                    </div>
+
+                 <!-- Box 03: Stranger Things Fanart -->
+                    <div class="project-card" style="background-image: url('612b6bd1-3a47-4a1f-a738-9f3bcb48cd7f.png');" 
+                    onclick="openProject('Stranger Things (Blender)', '<p class=\'description-body\'>A detailed 3D recreation project where three iconic scenes from the Netflix series &quot;Stranger Things&quot; were faithfully recreated in Blender.</p><br><span class=\'highlight-text\'>Camera & Matching</span><p class=\'description-body\'>Precise camera matching to replicate the exact angles, focal lengths, and camera movements of the original shots.</p><br><span class=\'highlight-text\'>Workflow & Software</span><p class=\'description-body\'>Completely modeled, shaded, and rendered in Blender, focusing on high accuracy compared to the reference footage.</p><br><span class=\'highlight-text\'>Environment & Lighting</span><p class=\'description-body\'>Features custom terrain, detailed foliage scattering, and cinematic volumetric lighting to capture the dark, mysterious atmosphere.</p>', 'inmark.mp4', 'StrangerThings.mp4')">
+                    <div class="card-content">
+                    <span>03</span><h4>Stranger Things Fanart</h4>
+                </div>
+           </div>
+
+                    <!-- Box 04 -->
+                    <div class="project-card" style="background-image: url('Bar_final_Picture (2).png');" 
+                         onclick="openProject('Bar Am See', '<p class=\'description-body\'>A fusion of organic nature and sharp modernism. This project explores the boundary between interior comfort and the vastness of a sunset horizon.</p><br><span class=\'highlight-text\'>Modeling</span><p class=\'description-body\'>Custom furniture and architectural elements crafted in Blender for a bespoke luxury feel.</p><br><span class=\'highlight-text\'>Atmosphere</span><p class=\'description-body\'>Advanced HDRI-lighting to simulate the golden hour’s interaction with glass and marble.</p><br><span class=\'highlight-text\'>Post-Processing</span><p class=\'description-body\'>Color grading focused on the symbiosis of warm sunset hues and cool interior tones.</p>', 'Bar_final_Picture (2).png', 'BarAmSee_Roh.png')">
+                        <div class="card-content"><span>04</span><h4>School Project 1</h4></div>
+                    </div>
+
+                    <!-- Box 05 -->
+                    <div class="project-card" style="background-image: url('Cover_LaptopFinal.png');" 
+                         onclick="openProject('School Project: ROG Zephyrus', '<p class=\'description-body\'>For this school assignment, I chose to push my technical limits by modeling the complex Asus ROG Zephyrus G16 Duo. Instead of a standard laptop, I tackled this dual-screen high-performance machine to master intricate mechanical hinges and complex surface transitions.</p><br><span class=\'highlight-text\'>Modeling Challenge</span><p class=\'description-body\'>High-poly reconstruction of the unique dual-screen tilting mechanism and precision-engineered cooling vents in Blender.</p><br><span class=\'highlight-text\'>Material Design</span><p class=\'description-body\'>Recreating the premium magnesium-alloy finish and the distinctive RGB-lit keyboard using custom PBR shaders.</p><br><span class=\'highlight-text\'>Mechanical Realism</span><p class=\'description-body\'>Focus on realistic component articulation and hardware details to ensure a believable industrial design representation.</p>', 'ff32eeb9-02ad-44c0-98d2-54de4399b964.mp4','Cover_LaptopFinal.png', 'Laptop_oben.png', 'Laptop_side_inputs.png', 'Laptop_side.png','0001-0097.mp4','Laptop_2Screen.png', 'Laptop_KeysNight.png', 'Cover_Laptop.png')">
+                        <div class="card-content"><span>05</span><h4>School Project 2</h4></div>
+                    </div>
+
+                    <!-- Box 06 -->
+                    <div class="project-card" style="background-image: url('Erath_Moon11.png');" 
+                         onclick="openProject('Universe (Blender)', '<p class=\'description-body\'>A cinematic exploration of the lunar orbit and the relationship between the Moon and Earth.</p><br><span class=\'highlight-text\'>Modeling & Animation</span><p class=\'description-body\'>Created in Blender featuring a synchronized camera orbit revealing the Earth.</p><br><span class=\'highlight-text\'>Shading</span><p class=\'description-body\'>Enhanced Earth material with multi-layered textures to simulate a living planet, including glowing night city lights.</p><br><span class=\'highlight-text\'>Lighting</span><p class=\'description-body\'>High-contrast directional setup simulating the harsh, unfiltered light of space on lunar craters.</p>','tikdown.MP4','Erath_Moon11.png')">
+                        <div class="card-content"><span>06</span><h4>Earthrise (Blender)</h4></div>
+                    </div>
+
+                    <!-- Box 07 -->
+                    <div class="project-card" style="background-image: url('Flooransichtr.png');" 
+                         onclick="openProject('Preschool (Blender)', '<p class=\'description-body\'>A functional and welcoming kindergarten interior designed to encourage creativity, collaboration, and playful learning.</p><br><span class=\'highlight-text\'>Space Planning</span><p class=\'description-body\'>Visualized in Blender with a layout designed to separate and connect multiple activity zones efficiently.</p><br><span class=\'highlight-text\'>Materials & Atmosphere</span><p class=\'description-body\'>Natural wood textures and soft warm tones to build a comforting and child-friendly environment.</p><br><span class=\'highlight-text\'>Lighting Concept</span><p class=\'description-body\'>Balanced illumination concept creating an inviting atmosphere suitable for both learning and play.</p>', 'Flooransichtr.png', 'b2e36c85-3cf9-45c5-aa93-9b740e403d04.JPG', '73ee99d3-e2d0-4149-9b31-8978532a272f.JPG', 'Bücherbercih.png', '1b54fe5e-ba0e-42ec-b9fe-1ab65bec7730.JPG','roomRightdoorSite.png','WindowSite.png','KreativEcke.png')">
+                        <div class="card-content"><span>07</span><h4>preschool (Blender)</h4></div>
+                    </div>
+
+                </div>
+
+                <button class="nav-btn next" onclick="moveSlider(this,1)" ontouchstart="moveSlider(this,1)">❯</button>
+            </div>
+        </section>
+
+        <!-- UNREAL ENGINE SECTION -->
+        <section class="projects">
+            <h2 class="section-title">Unreal Engine</h2>
+            <div class="slider-container">
+                <button class="nav-btn prev" onclick="moveSlider(this,-1)" ontouchstart="moveSlider(this,-1)">❮</button>
+                
+                <div class="carousel">
+                    <!-- Box 01 -->
+                    <div class="project-card" style="background-image: url('McLarenLight.png');" 
+                         onclick="openProject('Automotive', '<p class=\'description-body\'>A high-fidelity digital twin of a McLaren, focusing on the interplay of light and aerodynamic form. This project pushes the boundaries of real-time rendering to capture the essence of automotive excellence.</p><br><span class=\'highlight-text\'>Digital Sculpting</span><p class=\'description-body\'>Precision modeling in Blender with a focus on class-A surfaces and perfect curvature continuity.</p><br><span class=\'highlight-text\'>Lighting Tech</span><p class=\'description-body\'>A multi-layer lighting setup in Unreal Engine 5 using Lumen for dynamic, physically accurate reflections.</p><br><span class=\'highlight-text\'>Materials</span><p class=\'description-body\'>Custom carbon fiber and multi-coat metallic shaders developed to react dynamically to environment light.</p>', 'McLarenFrontSide.png', 'McLarenFront.png', 'McLarenLight.png', 'McLarenUpside.png', 'McLarenSide.png')">
+                        <div class="card-content"><span>01</span><h4>Automotive (Unreal Engine)</h4></div>
+                    </div>
+
+                    <!-- Box 02: Halo World -->
+                    <div class="project-card" style="background-image: url('IMG_1736.png');" 
+                         onclick="openProject('Halo World (Unreal Engine)', '<p class=\'description-body\'>A cinematic 3D environment bringing the iconic Halo Ring world to life, capturing its ancient scale and mystery.</p><br><span class=\'highlight-text\'>Engine & Rendering</span><p class=\'description-body\'>Created and rendered in Unreal Engine to achieve a dynamic, high-fidelity real-time scene.</p><br><span class=\'highlight-text\'>Atmosphere & Volumetrics</span><p class=\'description-body\'>Designed with volumetric cloud layers and low-altitude fog to enhance depth and cinematic immersion.</p><br><span class=\'highlight-text\'>Materials & Lighting</span><p class=\'description-body\'>Integrated realistic water surfaces and dramatic sky lighting to highlight the massive scale of the Forerunner ring.</p>', 'HaloUnreal engine.MP4', 'IMG_1736.png')">
+                        <div class="card-content"><span>02</span><h4>Halo World (Unreal Engine)</h4></div>
+                    </div>
+                </div>
+
+                <button class="nav-btn next" onclick="moveSlider(this,1)" ontouchstart="moveSlider(this,1)">❯</button>
+            </div>
+        </section>
+
+        <!-- PHOTOSHOP SECTION -->
+        <section class="projects">
+            <h2 class="section-title">Photoshop</h2>
+            <div class="slider-container">
+                <button class="nav-btn prev" onclick="moveSlider(this,-1)" ontouchstart="moveSlider(this,-1)">❮</button>
+                
+                <div class="carousel">
+                    <div class="project-card" style="background-image: url('DoseSynthwave.png');" 
+                         onclick="openProject('Synthwave Healing Energy Drink', '<span class=\'description-body\'>An authentic 80s-inspired asset design created for my game Eternal Dread. This custom-branded can serves as an in-game rare healing power-up, granting a specific status ability while fully immersing the player in a nostalgic retro aesthetic.</span><br><br><span class=\'highlight-text\'>Concept & Purpose</span><span class=\'description-body\'>Designed from scratch as a unique utility item for Eternal Dread, providing instant team recovery within the survival gameplay loop.</span><br><span class=\'highlight-text\'>80s Aesthetic</span><span class=\'description-body\'>Packed with classic Outrun and Synthwave tropes, featuring a glowing wireframe grid, retro typography, neon sun horizons, and vintage cassette tape motifs.</span><br><span class=\'highlight-text\'>Label Design</span><span class=\'description-body\'>Crafted with high attention to detail in Photoshop, including realistic nutrition facts, barcode integration, custom metallic branding, and detailed top-can engraving textures.</span>', 'DoseSynthwave.png', 'DosenLabelSynthwave.png')">
+                        <div class="card-content"><span>01</span><h4>Synthwave Can</h4></div>
+                    </div>
+
+                    <div class="project-card" style="background-image: url('NeonBarrageDesign.png');" 
+                         onclick="openProject('Neon Barrage: Retro Arcade Art', '<span class=\'description-body\'>An illustrative masterpiece celebrating the golden era of 80s sci-fi and arcade cabinet art. Developed with a flawless retro aesthetic, this piece captures the essence of classic shmup (shoot em up) gameplay through dynamic, colorful vector illustration and authentic texture layering.</span><br><br><span class=\'highlight-text\'>Design & Aesthetic</span><span class=\'description-body\'>A faithful recreation of classic arcade art tropes, featuring a bold wireframe grid horizon, vibrant neon-gradient typography with authentic glows, and intricate space battlefield imagery.</span><br><span class=\'highlight-text\'>Workflow</span><span class=\'description-body\'>Leveraging the precision of Illustrator for crisp vector lines and the depth of Photoshop for texturing, grain effects, and nostalgic grain finishes, this project merges two powerful workflows into a cohesive retro vision.</span><br><span class=\'highlight-text\'>Composition</span><span class=\'description-body\'>From the meticulously designed starship and cosmic monsters to the retrojoystick panel, every element is composed to create a chaotic, vibrant scene that feels right at home in a classic game center.</span>', 'NeonBarrageDesign.png')">
+                        <div class="card-content"><span>02</span><h4>Neon Barrage (Illustrator/Photoshop)</h4></div>
+                    </div>
+
+
+               <!-- Box: The Crimson Gaze (Blender & Photoshop) -->
+              <div class="project-card" style="background-image: url('d726325fe0c94b94bcbf7e4aaf65a051.mp4');" 
+               onclick="openProject('The Crimson Gaze (Blender & Photoshop)', '<p class=\'description-body\'>A dark fantasy digital artwork created through a seamless collaboration between Blender and Photoshop, combining 3D rendering with advanced photo manipulation to create a powerful, mystic visual.</p><br><span class=\'highlight-text\'>Concept & Narrative</span><p class=\'description-body\'>The piercing eye represents vision and perception, dramatically pierced by an ornate sword. The glowing red energy radiating from the blade symbolizes passion, danger, and unleashed power.</p><br><span class=\'highlight-text\'>Blender & Photoshop Pipeline</span><p class=\'description-body\'>Both the central eye and the detailed sword were modeled and rendered in Blender, then composited in Photoshop using precise blending, custom lighting maps, dynamic smoke simulation, and vibrant glowing particle effects.</p><br><span class=\'highlight-text\'>Color & Atmosphere</span><p class=\'description-body\'>Designed with a high-contrast dark aesthetic, focusing the viewer’s eye directly on the intense warm glow of the iris and the energy coursing through the blade.</p>', 'd726325fe0c94b94bcbf7e4aaf65a051.mp4')">
+              <div class="card-content">
+              <span>04</span><h4>The Crimson Gaze</h4>
+         </div>
+
+                <button class="nav-btn next" onclick="moveSlider(this,1)" ontouchstart="moveSlider(this,1)">❯</button>
+            </div>
+        </section>
+
+        <!-- DEEP DIVE SECTION -->
+        <section class="project-deep-dive" id="eternal-dread">
+            <div class="dive-container">
+                <div class="dive-visual">
+                    <div class="glass-card visual-inner">
+                        <div class="video-placeholder" style="background-image: url('Eternal_DreadCover.png'); background-size: cover; background-position: center; border-radius: 10px;"></div>
+                    </div>
+                </div>
+
+                <div class="dive-info">
+                    <p class="section-label">Origin & Mission</p>
+                    <h2 class="project-title">Eternal Dread</h2>
+
+                    <div class="dive-text">
+                        <p class="lead-text">
+                            The idea for <strong>“Eternal Dread”</strong> stems from my deep passion for video games. As a gamer, it has always been my dream not just to immerse myself in foreign worlds, but to become the creator of these worlds myself. My ultimate goal is to be part of the gaming industry and to actively shape the interactive experiences of tomorrow.
+                        </p>
+
+                        <p class="main-body">
+                            Even before starting my training as a Digital and Print Media Designer specializing in Animation and Visualization, I was deeply involved with Blender and Unreal Engine. From the very beginning, my drive was to use my creative spark not just visually, but to develop experiences that combine atmosphere, tension, and technology.
+                        </p>
+                        <p class="main-body">
+                            What started as initial experiments evolved into <strong>“Eternal Dread”</strong> – an atmospheric 1980s zombie wave survival game. I am executing all areas independently: from world building and level design to technical implementation within the engine. Every line of logic and every single mesh is proof of my ambition to master the entire game development pipeline.
+                        </p>
+                        <p class="main-body">
+                            “Eternal Dread” is the result of this process... 
+                            <strong>My goal is to push the graphical capabilities of Unreal Engine 5 so consistently that the visual quality can compete with modern AAA productions.</strong> 
+                            Particularly through the use of real-time ray tracing and highly detailed assets, I am creating a level of immersion that goes far beyond a classic indie title.
+                        </p>
+                    </div>
+
+                    <p class="main-body">
+                        Through targeted lighting moods and detailed environments, a world is created that completely captivates the player. For me, this project is the decisive step on my journey to gain a foothold in the industry as a <strong>Game Designer</strong> and turn my dream into reality.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="minimal-footer">
+        <div class="footer-main">
+            <div class="footer-left">
+                <h2 class="footer-title">Let's create something<br><span class="cyan-glow">extraordinary.</span></h2>
+            </div>
+            
+            <div class="footer-right">
+                <div class="contact-box">
+                    <span class="label">Contact</span>
+                    <a href="mailto:gerritwegner325@gmail.com" class="email-link">gerritwegner325@gmail.com</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/gerrit-wegner-4ab64a203/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BG0Z9Vqr8S9mJLxBu21Pfsw%3D%3D" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <span>&copy; 2026 Gerrit Wegner</span>
+            <span> - Website was created by myself</span>
+            <div class="status">
+                <span class="status-dot"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Lightbox Container -->
+    <div id="media-lightbox" onclick="if(event.target === this) closeLightbox()"></div>
+    
+</body>
+</html>
