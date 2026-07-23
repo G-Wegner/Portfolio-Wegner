@@ -104,7 +104,7 @@ function zoomMedia(element) {
         const videoSource = mainVideo.querySelector('source')?.src || mainVideo.src || '';
         const isStrangerThings = videoSource.toLowerCase().includes('strangerthings.mp4');
 
-        if (isStrangerThings) {
+        if (isStrangerThings.mp4) {
             const ROTATE_AT_SECOND = 18.0; // Hier Sekunde der Drehung festlegen
             setupVideoRotation(mainVideo, ROTATE_AT_SECOND);
             setupVideoRotation(glowVideo, ROTATE_AT_SECOND);
